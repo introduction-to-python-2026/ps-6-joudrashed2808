@@ -1,11 +1,11 @@
 def create_codon_dict(file_path):
-    codon_table = []
-    with open(file_path, "r") as fobj:
-        all_rows = fobj.readlines()
-    for entry in all_rows:
-        fields = entry.strip().split('\t')
-        if len(fields) >= 3:
-            key = fields[0]
-            value = fields[2]
-            codon_table[key] = value
-    return codon_table
+    codon_dictionary = {}
+    with open(file_path) as files:
+        row_of_codon = files.readlines()
+    for index in row_of_codon:
+        slices = index.strip().split('\t')
+        if len(slices) >= 3:
+            codon = slices[0]
+            x = slices[2]
+            codon_dictionary[codon] = x
+    return codon_dictionary
